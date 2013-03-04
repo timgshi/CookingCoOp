@@ -24,6 +24,10 @@
 		4B9C7B7B16E432E200580630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5616E432E200580630 /* Foundation.framework */; };
 		4B9C7B8316E432E200580630 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B9C7B8116E432E200580630 /* InfoPlist.strings */; };
 		4B9C7B8616E432E200580630 /* CookingCoOpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9C7B8516E432E200580630 /* CookingCoOpTests.m */; };
+		4BD1021416E45C2F003890B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021316E45C2F003890B5 /* CoreData.framework */; };
+		4BD1021616E45C36003890B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021516E45C36003890B5 /* SystemConfiguration.framework */; };
+		4BD1021D16E45D36003890B5 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021C16E45D36003890B5 /* libGoogleAnalytics.a */; };
+		4BD1021E16E45D36003890B5 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021C16E45D36003890B5 /* libGoogleAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,14 @@
 		4B9C7B8216E432E200580630 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4B9C7B8416E432E200580630 /* CookingCoOpTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CookingCoOpTests.h; sourceTree = "<group>"; };
 		4B9C7B8516E432E200580630 /* CookingCoOpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CookingCoOpTests.m; sourceTree = "<group>"; };
+		4BD1021316E45C2F003890B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4BD1021516E45C36003890B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4BD1021716E45D36003890B5 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Frameworks/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
+		4BD1021816E45D36003890B5 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Frameworks/GoogleAnalytics/GAITrackedViewController.h; sourceTree = "<group>"; };
+		4BD1021916E45D36003890B5 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Frameworks/GoogleAnalytics/GAITracker.h; sourceTree = "<group>"; };
+		4BD1021A16E45D36003890B5 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = Frameworks/GoogleAnalytics/GAITransaction.h; sourceTree = "<group>"; };
+		4BD1021B16E45D36003890B5 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = Frameworks/GoogleAnalytics/GAITransactionItem.h; sourceTree = "<group>"; };
+		4BD1021C16E45D36003890B5 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Frameworks/GoogleAnalytics/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		D74E425A6D314C369B181BAD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E8AA7411762042C29580356A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,10 +80,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BD1021616E45C36003890B5 /* SystemConfiguration.framework in Frameworks */,
+				4BD1021416E45C2F003890B5 /* CoreData.framework in Frameworks */,
 				4B9C7B5516E432E200580630 /* UIKit.framework in Frameworks */,
 				4B9C7B5716E432E200580630 /* Foundation.framework in Frameworks */,
 				4B9C7B5916E432E200580630 /* CoreGraphics.framework in Frameworks */,
 				0ECC9A4D71EA46ACA93120BD /* libPods.a in Frameworks */,
+				4BD1021D16E45D36003890B5 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +97,7 @@
 				4B9C7B7916E432E200580630 /* SenTestingKit.framework in Frameworks */,
 				4B9C7B7A16E432E200580630 /* UIKit.framework in Frameworks */,
 				4B9C7B7B16E432E200580630 /* Foundation.framework in Frameworks */,
+				4BD1021E16E45D36003890B5 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +127,9 @@
 		4B9C7B5316E432E200580630 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BD1021F16E45D45003890B5 /* Google Analytics */,
+				4BD1021516E45C36003890B5 /* SystemConfiguration.framework */,
+				4BD1021316E45C2F003890B5 /* CoreData.framework */,
 				4B9C7B5416E432E200580630 /* UIKit.framework */,
 				4B9C7B5616E432E200580630 /* Foundation.framework */,
 				4B9C7B5816E432E200580630 /* CoreGraphics.framework */,
@@ -164,6 +183,19 @@
 				4B9C7B8116E432E200580630 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BD1021F16E45D45003890B5 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				4BD1021716E45D36003890B5 /* GAI.h */,
+				4BD1021816E45D36003890B5 /* GAITrackedViewController.h */,
+				4BD1021916E45D36003890B5 /* GAITracker.h */,
+				4BD1021A16E45D36003890B5 /* GAITransaction.h */,
+				4BD1021B16E45D36003890B5 /* GAITransactionItem.h */,
+				4BD1021C16E45D36003890B5 /* libGoogleAnalytics.a */,
+			);
+			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +441,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";
 				INFOPLIST_FILE = "CookingCoOp/CookingCoOp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks/GoogleAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -425,6 +462,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";
 				INFOPLIST_FILE = "CookingCoOp/CookingCoOp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks/GoogleAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -443,6 +485,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";
 				INFOPLIST_FILE = "CookingCoOpTests/CookingCoOpTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks/GoogleAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -460,6 +507,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";
 				INFOPLIST_FILE = "CookingCoOpTests/CookingCoOpTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks/GoogleAnalytics\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

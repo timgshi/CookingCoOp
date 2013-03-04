@@ -13,6 +13,7 @@
 static NSString * const kCCParseId = @"12MIhHMhshrC2iYfmiGgP8hAPMiwuDg81XfOiEFr";
 static NSString * const kCCParseKey = @"NkK06jGJWM4LQEjlb4kOslaX4WStImotIEmeklLP";
 static NSString * const kCCTestFlightId = @"0151a3d9-d1cb-45d0-b865-85a91918f482";
+static NSString * const kGAIId = @"UA-38985264-1";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,6 +27,8 @@ static NSString * const kCCTestFlightId = @"0151a3d9-d1cb-45d0-b865-85a91918f482
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
+    [GAI sharedInstance].debug = YES;
+    [[GAI sharedInstance] trackerWithTrackingId:kGAIId];
     return YES;
 }
 
