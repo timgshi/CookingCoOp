@@ -12,13 +12,16 @@
 
 static NSString * const kCCParseId = @"12MIhHMhshrC2iYfmiGgP8hAPMiwuDg81XfOiEFr";
 static NSString * const kCCParseKey = @"NkK06jGJWM4LQEjlb4kOslaX4WStImotIEmeklLP";
-static NSString * const kCCTestFlightId = @"a08b8c3945a1b22498323a48a52600b3_MTk0MzE3MjAxMy0wMy0wMyAyMDo1NzozNi40MzkyNjk";
+static NSString * const kCCTestFlightId = @"0151a3d9-d1cb-45d0-b865-85a91918f482";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:kCCParseId
                   clientKey:kCCParseKey];
     [TestFlight takeOff:kCCTestFlightId];
+#ifndef RELEASE
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
     return YES;
 }
 							

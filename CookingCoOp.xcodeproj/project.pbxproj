@@ -404,10 +404,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D74E425A6D314C369B181BAD /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";
 				INFOPLIST_FILE = "CookingCoOp/CookingCoOp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -416,10 +418,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D74E425A6D314C369B181BAD /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";
 				INFOPLIST_FILE = "CookingCoOp/CookingCoOp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
