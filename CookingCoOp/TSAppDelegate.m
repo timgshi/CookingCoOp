@@ -10,9 +10,15 @@
 
 @implementation TSAppDelegate
 
+static NSString * const kCCParseId = @"12MIhHMhshrC2iYfmiGgP8hAPMiwuDg81XfOiEFr";
+static NSString * const kCCParseKey = @"NkK06jGJWM4LQEjlb4kOslaX4WStImotIEmeklLP";
+static NSString * const kCCTestFlightId = @"a08b8c3945a1b22498323a48a52600b3_MTk0MzE3MjAxMy0wMy0wMyAyMDo1NzozNi40MzkyNjk";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Parse setApplicationId:kCCParseId
+                  clientKey:kCCParseKey];
+    [TestFlight takeOff:kCCTestFlightId];
     return YES;
 }
 							
