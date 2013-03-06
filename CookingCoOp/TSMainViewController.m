@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Tim Shi. All rights reserved.
 //
 
-#import "TSViewController.h"
+#import "TSMainViewController.h"
 
-@interface TSViewController ()
+@interface TSMainViewController ()
 
 @end
 
-@implementation TSViewController
+@implementation TSMainViewController
 
 - (void)viewDidLoad
 {
