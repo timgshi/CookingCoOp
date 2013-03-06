@@ -24,6 +24,16 @@
 		4BB1DDD616E746880021FB2B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDD516E746880021FB2B /* Default@2x.png */; };
 		4BB1DDD816E7468C0021FB2B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDD716E7468C0021FB2B /* Default-568h@2x.png */; };
 		4BB1DDDA16E746B30021FB2B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDD916E746B30021FB2B /* Default.png */; };
+		4BB1DDDD16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1DDDC16E747B90021FB2B /* TSWalkthroughViewController.m */; };
+		4BB1DDDE16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1DDDC16E747B90021FB2B /* TSWalkthroughViewController.m */; };
+		4BB1DDE016E749BD0021FB2B /* wood_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDDF16E749BD0021FB2B /* wood_background.png */; };
+		4BB1DDE116E749BD0021FB2B /* wood_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDDF16E749BD0021FB2B /* wood_background.png */; };
+		4BB1DDE516E74A2F0021FB2B /* Tutorial 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDE216E74A2F0021FB2B /* Tutorial 1.png */; };
+		4BB1DDE616E74A2F0021FB2B /* Tutorial 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDE216E74A2F0021FB2B /* Tutorial 1.png */; };
+		4BB1DDE716E74A2F0021FB2B /* Tutorial 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDE316E74A2F0021FB2B /* Tutorial 2.png */; };
+		4BB1DDE816E74A2F0021FB2B /* Tutorial 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDE316E74A2F0021FB2B /* Tutorial 2.png */; };
+		4BB1DDE916E74A2F0021FB2B /* Tutorial 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDE416E74A2F0021FB2B /* Tutorial 3.png */; };
+		4BB1DDEA16E74A2F0021FB2B /* Tutorial 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BB1DDE416E74A2F0021FB2B /* Tutorial 3.png */; };
 		4BD1021416E45C2F003890B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021316E45C2F003890B5 /* CoreData.framework */; };
 		4BD1021616E45C36003890B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021516E45C36003890B5 /* SystemConfiguration.framework */; };
 		4BD1021D16E45D36003890B5 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD1021C16E45D36003890B5 /* libGoogleAnalytics.a */; };
@@ -63,6 +73,12 @@
 		4BB1DDD516E746880021FB2B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4BB1DDD716E7468C0021FB2B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4BB1DDD916E746B30021FB2B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4BB1DDDB16E747B90021FB2B /* TSWalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSWalkthroughViewController.h; sourceTree = "<group>"; };
+		4BB1DDDC16E747B90021FB2B /* TSWalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSWalkthroughViewController.m; sourceTree = "<group>"; };
+		4BB1DDDF16E749BD0021FB2B /* wood_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_background.png; sourceTree = "<group>"; };
+		4BB1DDE216E74A2F0021FB2B /* Tutorial 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial 1.png"; sourceTree = "<group>"; };
+		4BB1DDE316E74A2F0021FB2B /* Tutorial 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial 2.png"; sourceTree = "<group>"; };
+		4BB1DDE416E74A2F0021FB2B /* Tutorial 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial 3.png"; sourceTree = "<group>"; };
 		4BD1021316E45C2F003890B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4BD1021516E45C36003890B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4BD1021716E45D36003890B5 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Frameworks/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
@@ -148,8 +164,14 @@
 				4B9C7B6316E432E200580630 /* TSAppDelegate.h */,
 				4B9C7B6416E432E200580630 /* TSAppDelegate.m */,
 				4B9C7B6C16E432E200580630 /* MainStoryboard.storyboard */,
+				4BB1DDDB16E747B90021FB2B /* TSWalkthroughViewController.h */,
+				4BB1DDDC16E747B90021FB2B /* TSWalkthroughViewController.m */,
 				4B9C7B6F16E432E200580630 /* TSMainViewController.h */,
 				4B9C7B7016E432E200580630 /* TSMainViewController.m */,
+				4BB1DDDF16E749BD0021FB2B /* wood_background.png */,
+				4BB1DDE216E74A2F0021FB2B /* Tutorial 1.png */,
+				4BB1DDE316E74A2F0021FB2B /* Tutorial 2.png */,
+				4BB1DDE416E74A2F0021FB2B /* Tutorial 3.png */,
 				4B9C7B5B16E432E200580630 /* Supporting Files */,
 			);
 			path = CookingCoOp;
@@ -276,6 +298,10 @@
 				4BB1DDD616E746880021FB2B /* Default@2x.png in Resources */,
 				4BB1DDD816E7468C0021FB2B /* Default-568h@2x.png in Resources */,
 				4BB1DDDA16E746B30021FB2B /* Default.png in Resources */,
+				4BB1DDE016E749BD0021FB2B /* wood_background.png in Resources */,
+				4BB1DDE516E74A2F0021FB2B /* Tutorial 1.png in Resources */,
+				4BB1DDE716E74A2F0021FB2B /* Tutorial 2.png in Resources */,
+				4BB1DDE916E74A2F0021FB2B /* Tutorial 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +310,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9C7B8316E432E200580630 /* InfoPlist.strings in Resources */,
+				4BB1DDE116E749BD0021FB2B /* wood_background.png in Resources */,
+				4BB1DDE616E74A2F0021FB2B /* Tutorial 1.png in Resources */,
+				4BB1DDE816E74A2F0021FB2B /* Tutorial 2.png in Resources */,
+				4BB1DDEA16E74A2F0021FB2B /* Tutorial 3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +357,7 @@
 				4B9C7B6116E432E200580630 /* main.m in Sources */,
 				4B9C7B6516E432E200580630 /* TSAppDelegate.m in Sources */,
 				4B9C7B7116E432E200580630 /* TSMainViewController.m in Sources */,
+				4BB1DDDD16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9C7B8616E432E200580630 /* CookingCoOpTests.m in Sources */,
+				4BB1DDDE16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
