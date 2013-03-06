@@ -9,11 +9,44 @@
             <objects>
                 <viewController id="2" customClass="TSMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="640" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17B-0i-fAd">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="firstmeal-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-u0-byn">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="3gW-a1-h0K"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="createmeal-568h@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hs1-ZF-vT4">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="dRa-Fg-079"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hVl-u0-byn" firstAttribute="bottom" secondItem="17B-0i-fAd" secondAttribute="bottom" type="default" id="58M-5n-Kmx"/>
+                                    <constraint firstItem="Hs1-ZF-vT4" firstAttribute="leading" secondItem="17B-0i-fAd" secondAttribute="leading" constant="320" id="BvI-fB-e6d"/>
+                                    <constraint firstItem="Hs1-ZF-vT4" firstAttribute="bottom" secondItem="17B-0i-fAd" secondAttribute="bottom" type="default" id="IJm-mn-2Bz"/>
+                                    <constraint firstItem="hVl-u0-byn" firstAttribute="top" secondItem="17B-0i-fAd" secondAttribute="top" type="default" id="JIe-Zq-3ZB"/>
+                                    <constraint firstItem="Hs1-ZF-vT4" firstAttribute="trailing" secondItem="17B-0i-fAd" secondAttribute="trailing" type="default" id="SU8-Ud-XPq"/>
+                                    <constraint firstItem="hVl-u0-byn" firstAttribute="centerY" secondItem="17B-0i-fAd" secondAttribute="centerY" type="default" id="fNc-NA-8c3"/>
+                                    <constraint firstItem="Hs1-ZF-vT4" firstAttribute="top" secondItem="17B-0i-fAd" secondAttribute="top" type="default" id="oYY-Ef-yLV"/>
+                                    <constraint firstItem="hVl-u0-byn" firstAttribute="leading" secondItem="17B-0i-fAd" secondAttribute="leading" type="default" id="u0J-aI-OvD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="17B-0i-fAd" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="1hS-be-6r3"/>
+                            <constraint firstItem="17B-0i-fAd" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="7AS-vi-Z5h"/>
+                            <constraint firstItem="17B-0i-fAd" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="OcT-at-TAp"/>
+                            <constraint firstItem="17B-0i-fAd" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ScG-gA-iuf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iMC-tN-bhh"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <segue destination="EPj-Gf-BKX" kind="modal" identifier="StartWalkthrough" id="Ln3-C2-vQS"/>
                     </connections>
@@ -127,8 +160,24 @@
         <image name="Tutorial 1.png" width="1183" height="1145"/>
         <image name="Tutorial 2.png" width="1181" height="1145"/>
         <image name="Tutorial 3.png" width="1181" height="1147"/>
+        <image name="createmeal-568h@2x.png" width="640" height="1136"/>
+        <image name="firstmeal-568h@2x.png" width="640" height="1136"/>
         <image name="wood_background.png" width="640" height="960"/>
     </resources>
+    <classes>
+        <class className="GAITrackedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GAITrackedViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TSMainViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSMainViewController.h"/>
+        </class>
+        <class className="TSWalkthroughViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSWalkthroughViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
