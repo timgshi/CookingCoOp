@@ -164,20 +164,6 @@
         <image name="firstmeal-568h@2x.png" width="640" height="1136"/>
         <image name="wood_background.png" width="640" height="960"/>
     </resources>
-    <classes>
-        <class className="GAITrackedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GAITrackedViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TSMainViewController" superclassName="GAITrackedViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSMainViewController.h"/>
-        </class>
-        <class className="TSWalkthroughViewController" superclassName="GAITrackedViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSWalkthroughViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

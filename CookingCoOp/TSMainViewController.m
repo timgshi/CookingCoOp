@@ -40,6 +40,24 @@
     } else if (![[PFUser currentUser] objectForKey:@"hasSeenTutorial"]) {
         [self performSegueWithIdentifier:@"StartWalkthrough" sender:self];
     }
+    if ([PFUser currentUser]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(logOutPressed:)];
+    }
+}
+
+- (void)logOutPressed:(id)sender {
+    [PFUser logOut];
+    PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
+    logInVC.fields = PFLogInFieldsUsernameAndPassword
+    | PFLogInFieldsLogInButton
+    | PFLogInFieldsSignUpButton
+    | PFLogInFieldsPasswordForgotten
+    | PFLogInFieldsDismissButton;
+    logInVC.delegate = self;
+    logInVC.signUpController.delegate = self;
+    [self.navigationController presentViewController:logInVC animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning
