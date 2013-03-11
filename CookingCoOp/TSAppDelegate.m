@@ -8,6 +8,9 @@
 
 #import "TSAppDelegate.h"
 
+#import "TSMainViewController.h"
+#import "TSWalkthroughViewController.h"
+
 @implementation TSAppDelegate
 
 static NSString * const kCCParseId = @"12MIhHMhshrC2iYfmiGgP8hAPMiwuDg81XfOiEFr";
@@ -29,6 +32,11 @@ static NSString * const kGAIId = @"UA-38985264-1";
      UIRemoteNotificationTypeSound];
     [GAI sharedInstance].debug = YES;
     [[GAI sharedInstance] trackerWithTrackingId:kGAIId];
+    self.revealController = (PKRevealController *)self.window.rootViewController;
+    UINavigationController *frontViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MainNav"];
+    TSWalkthroughViewController *leftViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"WalkthroughVC"];
+    [self.revealController setFrontViewController:frontViewController];
+    [self.revealController setLeftViewController:leftViewController];
     return YES;
 }
 

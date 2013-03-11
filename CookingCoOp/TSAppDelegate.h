@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PKRevealController/PKRevealController.h>
 
 @interface TSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) PKRevealController *revealController;
 
 @end
