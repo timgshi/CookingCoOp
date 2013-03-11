@@ -8,8 +8,7 @@
 
 #import "TSAppDelegate.h"
 
-#import "TSMainViewController.h"
-#import "TSWalkthroughViewController.h"
+#import "TSNavTableViewController.h"
 
 @implementation TSAppDelegate
 
@@ -34,7 +33,7 @@ static NSString * const kGAIId = @"UA-38985264-1";
     [[GAI sharedInstance] trackerWithTrackingId:kGAIId];
     self.revealController = (PKRevealController *)self.window.rootViewController;
     UINavigationController *frontViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MainNav"];
-    TSWalkthroughViewController *leftViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"WalkthroughVC"];
+    TSNavTableViewController *leftViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"NavTableVC"];
     [self.revealController setFrontViewController:frontViewController];
     [self.revealController setLeftViewController:leftViewController];
     return YES;

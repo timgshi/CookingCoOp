@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0ECC9A4D71EA46ACA93120BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AA7411762042C29580356A /* libPods.a */; };
+		4B86230916EE7A91009F9320 /* TSNavTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B86230816EE7A91009F9320 /* TSNavTableViewController.m */; };
+		4B86230A16EE7A91009F9320 /* TSNavTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B86230816EE7A91009F9320 /* TSNavTableViewController.m */; };
 		4B9C7B5516E432E200580630 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5416E432E200580630 /* UIKit.framework */; };
 		4B9C7B5716E432E200580630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5616E432E200580630 /* Foundation.framework */; };
 		4B9C7B5916E432E200580630 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5816E432E200580630 /* CoreGraphics.framework */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B86230716EE7A91009F9320 /* TSNavTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNavTableViewController.h; sourceTree = "<group>"; };
+		4B86230816EE7A91009F9320 /* TSNavTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNavTableViewController.m; sourceTree = "<group>"; };
 		4B9C7B5116E432E200580630 /* CookingCoOp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookingCoOp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9C7B5416E432E200580630 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4B9C7B5616E432E200580630 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,6 +180,8 @@
 				4B9C7B6316E432E200580630 /* TSAppDelegate.h */,
 				4B9C7B6416E432E200580630 /* TSAppDelegate.m */,
 				4B9C7B6C16E432E200580630 /* MainStoryboard.storyboard */,
+				4B86230716EE7A91009F9320 /* TSNavTableViewController.h */,
+				4B86230816EE7A91009F9320 /* TSNavTableViewController.m */,
 				4BB1DDDB16E747B90021FB2B /* TSWalkthroughViewController.h */,
 				4BB1DDDC16E747B90021FB2B /* TSWalkthroughViewController.m */,
 				4B9C7B6F16E432E200580630 /* TSMainViewController.h */,
@@ -382,6 +388,7 @@
 				4B9C7B6516E432E200580630 /* TSAppDelegate.m in Sources */,
 				4B9C7B7116E432E200580630 /* TSMainViewController.m in Sources */,
 				4BB1DDDD16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */,
+				4B86230916EE7A91009F9320 /* TSNavTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +398,7 @@
 			files = (
 				4B9C7B8616E432E200580630 /* CookingCoOpTests.m in Sources */,
 				4BB1DDDE16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */,
+				4B86230A16EE7A91009F9320 /* TSNavTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
