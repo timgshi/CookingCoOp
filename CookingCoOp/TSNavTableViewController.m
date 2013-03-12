@@ -41,7 +41,7 @@
 }
 
 - (NSArray *)viewcontrollerIDs {
-    return @[@"CommunityNav", @"MainNav", @"WalkthroughNav"];
+    return @[@"CommunityNav", @"MealsNav", @"WalkthroughNav"];
 }
 
 #pragma mark - Table view delegate

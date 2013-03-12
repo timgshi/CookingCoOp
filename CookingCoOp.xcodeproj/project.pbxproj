@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0ECC9A4D71EA46ACA93120BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AA7411762042C29580356A /* libPods.a */; };
+		4B2AAB7E16EED30300F44C92 /* tablebackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B2AAB7D16EED30300F44C92 /* tablebackground.jpg */; };
+		4B2AAB7F16EED30300F44C92 /* tablebackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B2AAB7D16EED30300F44C92 /* tablebackground.jpg */; };
+		4B2AAB8216EED3B000F44C92 /* TSMealsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AAB8116EED3B000F44C92 /* TSMealsTableViewController.m */; };
+		4B2AAB8316EED3B000F44C92 /* TSMealsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2AAB8116EED3B000F44C92 /* TSMealsTableViewController.m */; };
 		4B86230916EE7A91009F9320 /* TSNavTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B86230816EE7A91009F9320 /* TSNavTableViewController.m */; };
 		4B86230A16EE7A91009F9320 /* TSNavTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B86230816EE7A91009F9320 /* TSNavTableViewController.m */; };
+		4B97211516EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */; };
+		4B97211616EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */; };
 		4B9C7B5516E432E200580630 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5416E432E200580630 /* UIKit.framework */; };
 		4B9C7B5716E432E200580630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5616E432E200580630 /* Foundation.framework */; };
 		4B9C7B5916E432E200580630 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5816E432E200580630 /* CoreGraphics.framework */; };
@@ -61,8 +67,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B2AAB7D16EED30300F44C92 /* tablebackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tablebackground.jpg; sourceTree = "<group>"; };
+		4B2AAB8016EED3B000F44C92 /* TSMealsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMealsTableViewController.h; sourceTree = "<group>"; };
+		4B2AAB8116EED3B000F44C92 /* TSMealsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMealsTableViewController.m; sourceTree = "<group>"; };
 		4B86230716EE7A91009F9320 /* TSNavTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSNavTableViewController.h; sourceTree = "<group>"; };
 		4B86230816EE7A91009F9320 /* TSNavTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNavTableViewController.m; sourceTree = "<group>"; };
+		4B97211316EED7AF00DB6758 /* TSCreateMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCreateMealViewController.h; sourceTree = "<group>"; };
+		4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCreateMealViewController.m; sourceTree = "<group>"; };
 		4B9C7B5116E432E200580630 /* CookingCoOp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookingCoOp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9C7B5416E432E200580630 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4B9C7B5616E432E200580630 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +191,10 @@
 				4B9C7B6316E432E200580630 /* TSAppDelegate.h */,
 				4B9C7B6416E432E200580630 /* TSAppDelegate.m */,
 				4B9C7B6C16E432E200580630 /* MainStoryboard.storyboard */,
+				4B2AAB8016EED3B000F44C92 /* TSMealsTableViewController.h */,
+				4B2AAB8116EED3B000F44C92 /* TSMealsTableViewController.m */,
+				4B97211316EED7AF00DB6758 /* TSCreateMealViewController.h */,
+				4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */,
 				4B86230716EE7A91009F9320 /* TSNavTableViewController.h */,
 				4B86230816EE7A91009F9320 /* TSNavTableViewController.m */,
 				4BB1DDDB16E747B90021FB2B /* TSWalkthroughViewController.h */,
@@ -190,6 +205,7 @@
 				4BB1DDE216E74A2F0021FB2B /* Tutorial 1.png */,
 				4BB1DDE316E74A2F0021FB2B /* Tutorial 2.png */,
 				4BB1DDE416E74A2F0021FB2B /* Tutorial 3.png */,
+				4B2AAB7D16EED30300F44C92 /* tablebackground.jpg */,
 				4BB1DDF116E7550C0021FB2B /* firstmeal-568h@2x.png */,
 				4BB1DDF216E7550C0021FB2B /* createmeal-568h@2x.png */,
 				4BB1DDEB16E7540B0021FB2B /* createmeal@2x.png */,
@@ -328,6 +344,7 @@
 				4BB1DDEF16E7540B0021FB2B /* firstmeal@2x.png in Resources */,
 				4BB1DDF316E7550C0021FB2B /* firstmeal-568h@2x.png in Resources */,
 				4BB1DDF516E7550C0021FB2B /* createmeal-568h@2x.png in Resources */,
+				4B2AAB7E16EED30300F44C92 /* tablebackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +361,7 @@
 				4BB1DDF016E7540B0021FB2B /* firstmeal@2x.png in Resources */,
 				4BB1DDF416E7550C0021FB2B /* firstmeal-568h@2x.png in Resources */,
 				4BB1DDF616E7550C0021FB2B /* createmeal-568h@2x.png in Resources */,
+				4B2AAB7F16EED30300F44C92 /* tablebackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +407,8 @@
 				4B9C7B7116E432E200580630 /* TSMainViewController.m in Sources */,
 				4BB1DDDD16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */,
 				4B86230916EE7A91009F9320 /* TSNavTableViewController.m in Sources */,
+				4B2AAB8216EED3B000F44C92 /* TSMealsTableViewController.m in Sources */,
+				4B97211516EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +419,8 @@
 				4B9C7B8616E432E200580630 /* CookingCoOpTests.m in Sources */,
 				4BB1DDDE16E747B90021FB2B /* TSWalkthroughViewController.m in Sources */,
 				4B86230A16EE7A91009F9320 /* TSNavTableViewController.m in Sources */,
+				4B2AAB8316EED3B000F44C92 /* TSMealsTableViewController.m in Sources */,
+				4B97211616EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
