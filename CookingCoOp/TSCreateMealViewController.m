@@ -11,6 +11,7 @@
 @interface TSCreateMealViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *dishTextField;
 @property (strong, nonatomic) IBOutlet UITextField *thankfulTextField;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end
 
@@ -35,6 +36,7 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    self.addButton.enabled = (self.dishTextField.text.length > 0) && (self.thankfulTextField.text.length > 0);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -48,6 +50,14 @@
 }
 
 - (IBAction)addButtonPressed:(id)sender {
+    NSDictionary *data = @{@"name": self.dishTextField.text,
+                           @"thankful": self.thankfulTextField.text,
+                           @"chef": [PFUser currentUser]};
+    PFObject *obj = [PFObject objectWithClassName:@"Meal"
+                                       dictionary:data];
+    [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+    }];
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
@@ -78,6 +88,15 @@
     } else if (textField == self.thankfulTextField) {
         [self.thankfulTextField resignFirstResponder];
     }
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.addButton.enabled = (self.dishTextField.text.length > 0) && (self.thankfulTextField.text.length > 0);
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    self.addButton.enabled = (self.dishTextField.text.length > 0) && (self.thankfulTextField.text.length > 0);
     return YES;
 }
 

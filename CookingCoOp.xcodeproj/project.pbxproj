@@ -16,6 +16,8 @@
 		4B86230A16EE7A91009F9320 /* TSNavTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B86230816EE7A91009F9320 /* TSNavTableViewController.m */; };
 		4B97211516EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */; };
 		4B97211616EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */; };
+		4B97211916EEE40A00DB6758 /* TSMealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97211816EEE40A00DB6758 /* TSMealDetailViewController.m */; };
+		4B97211A16EEE40A00DB6758 /* TSMealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97211816EEE40A00DB6758 /* TSMealDetailViewController.m */; };
 		4B9C7B5516E432E200580630 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5416E432E200580630 /* UIKit.framework */; };
 		4B9C7B5716E432E200580630 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5616E432E200580630 /* Foundation.framework */; };
 		4B9C7B5916E432E200580630 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B9C7B5816E432E200580630 /* CoreGraphics.framework */; };
@@ -74,6 +76,8 @@
 		4B86230816EE7A91009F9320 /* TSNavTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSNavTableViewController.m; sourceTree = "<group>"; };
 		4B97211316EED7AF00DB6758 /* TSCreateMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCreateMealViewController.h; sourceTree = "<group>"; };
 		4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCreateMealViewController.m; sourceTree = "<group>"; };
+		4B97211716EEE40A00DB6758 /* TSMealDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMealDetailViewController.h; sourceTree = "<group>"; };
+		4B97211816EEE40A00DB6758 /* TSMealDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMealDetailViewController.m; sourceTree = "<group>"; };
 		4B9C7B5116E432E200580630 /* CookingCoOp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookingCoOp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B9C7B5416E432E200580630 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4B9C7B5616E432E200580630 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +199,8 @@
 				4B2AAB8116EED3B000F44C92 /* TSMealsTableViewController.m */,
 				4B97211316EED7AF00DB6758 /* TSCreateMealViewController.h */,
 				4B97211416EED7AF00DB6758 /* TSCreateMealViewController.m */,
+				4B97211716EEE40A00DB6758 /* TSMealDetailViewController.h */,
+				4B97211816EEE40A00DB6758 /* TSMealDetailViewController.m */,
 				4B86230716EE7A91009F9320 /* TSNavTableViewController.h */,
 				4B86230816EE7A91009F9320 /* TSNavTableViewController.m */,
 				4BB1DDDB16E747B90021FB2B /* TSWalkthroughViewController.h */,
@@ -409,6 +415,7 @@
 				4B86230916EE7A91009F9320 /* TSNavTableViewController.m in Sources */,
 				4B2AAB8216EED3B000F44C92 /* TSMealsTableViewController.m in Sources */,
 				4B97211516EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */,
+				4B97211916EEE40A00DB6758 /* TSMealDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +428,7 @@
 				4B86230A16EE7A91009F9320 /* TSNavTableViewController.m in Sources */,
 				4B2AAB8316EED3B000F44C92 /* TSMealsTableViewController.m in Sources */,
 				4B97211616EED7AF00DB6758 /* TSCreateMealViewController.m in Sources */,
+				4B97211A16EEE40A00DB6758 /* TSMealDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
