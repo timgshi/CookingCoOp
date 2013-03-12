@@ -32,7 +32,7 @@ static NSString * const kGAIId = @"UA-38985264-1";
     [GAI sharedInstance].debug = YES;
     [[GAI sharedInstance] trackerWithTrackingId:kGAIId];
     self.revealController = (PKRevealController *)self.window.rootViewController;
-    UINavigationController *frontViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MainNav"];
+    UINavigationController *frontViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MealsNav"];
     TSNavTableViewController *leftViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"NavTableVC"];
     [self.revealController setFrontViewController:frontViewController];
     [self.revealController setLeftViewController:leftViewController];

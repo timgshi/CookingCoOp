@@ -177,10 +177,16 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="pad thai..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0F-LY-1XS">
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UHY-qH-cRU" id="o8t-PC-inl"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="pad thai..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHy-ob-YwH">
                                 <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="UHY-qH-cRU" id="ylq-XS-cDJ"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -213,11 +219,19 @@
                                 <action selector="cancelButtonPressed:" destination="UHY-qH-cRU" id="LIS-UI-NdZ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="z98-wf-GyB"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="z98-wf-GyB">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="UHY-qH-cRU" id="COc-ht-rDq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="dishTextField" destination="h0F-LY-1XS" id="tqk-WP-Sc3"/>
+                        <outlet property="thankfulTextField" destination="wHy-ob-YwH" id="hZO-fS-YAB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3V-TV-vAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -449,6 +463,12 @@
         </class>
         <class className="TSCreateMealViewController" superclassName="GAITrackedViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TSCreateMealViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPressed:"/>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="outlet" name="dishTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thankfulTextField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="TSMainViewController" superclassName="GAITrackedViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TSMainViewController.h"/>
