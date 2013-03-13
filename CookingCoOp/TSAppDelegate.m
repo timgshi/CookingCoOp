@@ -36,6 +36,7 @@ static NSString * const kGAIId = @"UA-38985264-1";
     TSNavTableViewController *leftViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"NavTableVC"];
     [self.revealController setFrontViewController:frontViewController];
     [self.revealController setLeftViewController:leftViewController];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.0 green:0.0 blue:51/255.0 alpha:1.0]];
     return YES;
 }
 

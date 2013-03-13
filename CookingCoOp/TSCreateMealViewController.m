@@ -8,7 +8,9 @@
 
 #import "TSCreateMealViewController.h"
 
-@interface TSCreateMealViewController () <UITextFieldDelegate>
+#import "TSMealDetailViewController.h"
+
+@interface TSCreateMealViewController () <UITextFieldDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *dishTextField;
 @property (strong, nonatomic) IBOutlet UITextField *thankfulTextField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
@@ -50,14 +52,30 @@
 }
 
 - (IBAction)addButtonPressed:(id)sender {
-    NSDictionary *data = @{@"name": self.dishTextField.text,
-                           @"thankful": self.thankfulTextField.text,
-                           @"chef": [PFUser currentUser]};
-    PFObject *obj = [PFObject objectWithClassName:@"Meal"
-                                       dictionary:data];
-    [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-    }];
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
+        logInVC.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsDismissButton;
+        logInVC.delegate = self;
+        logInVC.signUpController.delegate = self;
+        [self.navigationController presentViewController:logInVC animated:YES completion:^{
+            
+        }];
+    } else {
+        NSDictionary *data = @{@"name": self.dishTextField.text,
+                               @"thankful": self.thankfulTextField.text,
+                               @"chef": [PFUser currentUser]};
+        PFObject *obj = [PFObject objectWithClassName:@"Meal"
+                                           dictionary:data];
+        [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            TSMealDetailViewController *mealDetail = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MealDetailVC"];
+            mealDetail.meal = obj;
+            [self.delegate createMealViewController:self didCreateMealVC:mealDetail];
+        }];
+    }
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
@@ -103,6 +121,30 @@
 - (void)viewTapped {
     [self.dishTextField resignFirstResponder];
     [self.thankfulTextField resignFirstResponder];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

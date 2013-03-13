@@ -8,6 +8,16 @@
 
 #import "GAITrackedViewController.h"
 
+@class TSCreateMealViewController;
+
+@protocol TSCreateMealDelegate
+
+- (void)createMealViewController:(TSCreateMealViewController *)controller didCreateMealVC:(UIViewController *)mealVC;
+
+@end
+
 @interface TSCreateMealViewController : GAITrackedViewController
+
+@property (nonatomic, weak) id <TSCreateMealDelegate> delegate;
 
 @end

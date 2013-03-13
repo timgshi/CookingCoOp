@@ -8,7 +8,9 @@
 
 #import "TSMealsTableViewController.h"
 
-@interface TSMealsTableViewController ()
+#import "TSCreateMealViewController.h"
+
+@interface TSMealsTableViewController () <TSCreateMealDelegate>
 
 @end
 
@@ -26,7 +28,19 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.className = @"Meal";
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = NO;
+        self.objectsPerPage = 25;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.title = @"Meals";
 }
 
@@ -40,7 +54,10 @@
     }
     
     [query orderByDescending:@"createdAt"];
-    
+    if ([PFUser currentUser]) {
+        [query whereKey:@"chef" equalTo:[PFUser currentUser]];
+    }
+    [query includeKey:@"chef"];
     return query;
 }
 
@@ -58,8 +75,21 @@
     
     // Configure the cell to show todo item with a priority at the bottom
     cell.textLabel.text = [object objectForKey:@"name"];
-    
+    cell.detailTextLabel.text = [[object objectForKey:@"chef"] username];
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"addMeal"]) {
+        TSCreateMealViewController *vc = (TSCreateMealViewController *)[[segue destinationViewController] topViewController];
+        vc.delegate = self;
+    }
+}
+
+- (void)createMealViewController:(TSCreateMealViewController *)controller didCreateMealVC:(UIViewController *)mealVC {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.navigationController pushViewController:mealVC animated:YES];
+    }];
 }
 
 @end
