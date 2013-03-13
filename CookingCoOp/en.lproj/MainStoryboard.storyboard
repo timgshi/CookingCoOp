@@ -198,7 +198,7 @@
                                     <constraint firstAttribute="height" constant="30" type="user" id="jye-HH-EZW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="hsh-LA-gU2" id="aOz-C2-QH0"/>
                                 </connections>
@@ -742,6 +742,68 @@
         <image name="tablebackground.jpg" width="3660" height="2450"/>
         <image name="wood_background.png" width="640" height="960"/>
     </resources>
+    <classes>
+        <class className="GAITrackedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GAITrackedViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PFQueryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
+        </class>
+        <class className="PKRevealController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PKRevealController.h"/>
+        </class>
+        <class className="TSCommunityCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSCommunityCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="countLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="imageViews" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="TSCommunityTableViewController" superclassName="PFQueryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSCommunityTableViewController.h"/>
+        </class>
+        <class className="TSCreateMealViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSCreateMealViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPressed:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="dishTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thankfulTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TSMainViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSMainViewController.h"/>
+        </class>
+        <class className="TSMealDetailViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSMealDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="countTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dishLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profileImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="thankfulLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="whenTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="whereTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="whoTextField" candidateClass="UITextField"/>
+                <relationship kind="outletCollection" name="textFields" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TSMealsTableViewController" superclassName="PFQueryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSMealsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="TSNavTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSNavTableViewController.h"/>
+        </class>
+        <class className="TSWalkthroughViewController" superclassName="GAITrackedViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TSWalkthroughViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -64,7 +64,11 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+    [self.meal setObject:self.whereTextField.text forKey:@"where"];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    if(self.countTextField.text.length > 0) [self.meal setObject:[formatter numberFromString:self.countTextField.text] forKey:@"maxAttendees"];
+    [self.meal saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,8 +139,10 @@
 - (void)keyboardWillShow:(NSNotification *)notification {
     CGRect frame = self.view.frame;
     CGRect keyboard = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    frame.origin.y -= keyboard.size.height;
-    frame.origin.y += 20;
+    if (frame.origin.y == 0) {
+        frame.origin.y -= keyboard.size.height;
+        frame.origin.y += 45;
+    }
     [UIView animateWithDuration:[[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
         self.view.frame = frame;
     }];
