@@ -48,6 +48,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 3) {
+        [PFUser logOut];
+        [self.revealController resignPresentationModeEntirely:YES
+                                                     animated:YES
+                                                   completion:NULL];
+        return;
+    }
     UIViewController *newVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:[self viewcontrollerIDs][indexPath.row]];
     [self.revealController setFrontViewController:newVC focusAfterChange:YES completion:NULL];
 }

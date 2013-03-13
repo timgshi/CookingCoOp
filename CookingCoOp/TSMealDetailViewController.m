@@ -8,7 +8,7 @@
 
 #import "TSMealDetailViewController.h"
 
-@interface TSMealDetailViewController () <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface TSMealDetailViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (strong, nonatomic) IBOutlet UILabel *dishLabel;
 @property (strong, nonatomic) IBOutlet UILabel *thankfulLabel;
@@ -55,10 +55,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [self updateView];
     PFQuery *query = [PFQuery queryWithClassName:@"Community"];
-    [query whereKey:@"members" equalTo:[PFUser currentUser]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        self.communities = objects;
-    }];
+    if ([PFUser currentUser]) {
+        [query whereKey:@"members" equalTo:[PFUser currentUser]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            self.communities = objects;
+        }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -79,13 +81,14 @@
 
 - (void)updateView {
     if (self.meal) {
-        if ([[PFUser currentUser] objectForKey:@"profilePicture"]) {
-            PFFile *profImage = [[PFUser currentUser] objectForKey:@"profilePicture"];
+        if ([[self.meal objectForKey:@"chef"] objectForKey:@"profilePicture"]) {
+            PFFile *profImage = [[self.meal objectForKey:@"chef"] objectForKey:@"profilePicture"];
             [profImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 self.profileImageView.image = [UIImage imageWithData:data];
             }];
         }
         self.dishLabel.text = [self.meal objectForKey:@"name"];
+        self.title = [self.meal objectForKey:@"name"];
         self.thankfulLabel.text = [self.meal objectForKey:@"thankful"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterShortStyle];
@@ -129,17 +132,32 @@
 }
 
 - (void)rsvpButtonPressed {
-    NSMutableArray *attendees = [[self.meal objectForKey:@"attendees"] mutableCopy];
-    if ([attendees containsObject:[PFUser currentUser]]) {
-        [attendees removeObject:[PFUser currentUser]];
-        [self.meal setObject:attendees forKey:@"attendees"];
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInVC = [[PFLogInViewController alloc] init];
+        logInVC.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsDismissButton;
+        logInVC.delegate = self;
+        logInVC.signUpController.delegate = self;
+        [self.navigationController presentViewController:logInVC animated:YES completion:^{
+            
+        }];
     } else {
-        [attendees addObject:[PFUser currentUser]];
-        [self.meal setObject:attendees forKey:@"attendees"];
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
+        NSMutableArray *attendees = [[self.meal objectForKey:@"attendees"] mutableCopy];
+        if (!attendees) attendees = [NSMutableArray array];
+        if ([attendees containsObject:[PFUser currentUser]]) {
+            [attendees removeObject:[PFUser currentUser]];
+            [self.meal setObject:attendees forKey:@"attendees"];
+            self.navigationItem.rightBarButtonItem.tintColor = [UIColor grayColor];
+        } else {
+            [attendees addObject:[PFUser currentUser]];
+            [self.meal setObject:attendees forKey:@"attendees"];
+            self.navigationItem.rightBarButtonItem.tintColor = [UIColor blueColor];
+        }
+        [self.meal saveInBackground];
     }
-    [self.meal saveInBackground];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -191,6 +209,103 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.whoTextField.text = [self.communities[row] objectForKey:@"name"];
     [self.meal setObject:self.communities[row] forKey:@"community"];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [self rsvpButtonPressed];
+    }];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSArray *buttonTitles;
+        UIActionSheet *actionSheet;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            actionSheet = [[UIActionSheet alloc]
+                           initWithTitle:@"Please add a profile picture."
+                           delegate:self
+                           cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:nil
+                           otherButtonTitles:@"From Camera",@"From Photo Library", nil];
+        } else {
+            actionSheet = [[UIActionSheet alloc]
+                           initWithTitle:@"Please add a profile picture."
+                           delegate:self
+                           cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:nil
+                           otherButtonTitles:@"From Photo Library", nil];
+        }
+        [actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+        [actionSheet showInView:self.view];
+    }];
+}
+
+- (void)displayImagePickerWithSource:(UIImagePickerControllerSourceType)src;
+{
+    if(![UIImagePickerController isSourceTypeAvailable:src]) {
+        src = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setSourceType:src];
+    [picker setDelegate:self];
+    [picker setAllowsEditing:YES];
+    [self presentViewController:picker animated:YES completion:^{
+    }];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex;
+{
+    switch (buttonIndex) {
+        case 0:
+            [self displayImagePickerWithSource:UIImagePickerControllerSourceTypeCamera];
+            break;
+        case 1:
+            [self displayImagePickerWithSource:UIImagePickerControllerSourceTypePhotoLibrary];
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        UIImage *image = info[UIImagePickerControllerEditedImage];
+        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [[PFUser currentUser] setObject:imageFile forKey:@"profilePicture"];
+            [[PFUser currentUser] saveInBackground];
+        } progressBlock:^(int percentDone) {
+            // Update your progress spinner here. percentDone will be between 0 and 100.
+        }];
+        [self rsvpButtonPressed];
+    }];
+}
+
+//Tells the delegate that the user cancelled the pick operation.
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
 }
 
 @end
