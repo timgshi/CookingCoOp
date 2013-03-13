@@ -35,6 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)revealButtonPressed:(id)sender {
+    [self.parentViewController.revealController showViewController:self.parentViewController.revealController.leftViewController];
+}
+
 - (IBAction)doneButtonPressed:(id)sender {
     [self.delegate walkthroughControllerDidFinish:self];
 }

@@ -422,85 +422,70 @@
             <objects>
                 <viewController storyboardIdentifier="WalkthroughVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPj-Gf-BKX" customClass="TSWalkthroughViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AAx-PJ-NdH">
-                        <rect key="frame" x="0.0" y="0.0" width="960" height="548"/>
+                        <rect key="frame" x="0.0" y="44" width="960" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wood_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-ZI-G3B">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="bHD-wa-GBO"/>
-                                </constraints>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpK-y7-YSR">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Tutorial 1.png" translatesAutoresizingMaskIntoConstraints="NO" id="oqK-37-5Q7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="EatTutorial.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oqK-37-5Q7">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="231" id="TDp-MR-WnC"/>
-                                            <constraint firstAttribute="width" constant="320" id="wyU-Rn-zYy"/>
+                                            <constraint firstAttribute="height" constant="329" id="Itb-x2-lol"/>
+                                            <constraint firstAttribute="width" constant="300" id="JbV-Mb-tHi"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Tutorial 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-VS-Rg7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="CookingTutorial.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JoY-2J-Iys">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="uKi-fA-pZH"/>
+                                            <constraint firstAttribute="width" constant="300" type="user" id="OjI-RL-BeY"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Tutorial 3.png" translatesAutoresizingMaskIntoConstraints="NO" id="ujM-Rr-CVi">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SharingTutorial.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="w1n-h0-QvB">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="wJz-0h-5mL"/>
+                                            <constraint firstAttribute="width" constant="300" id="0pP-3F-DRk"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PK0-kQ-41Y">
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="doneButtonPressed:" destination="EPj-Gf-BKX" eventType="touchUpInside" id="NXv-24-C3S"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oqK-37-5Q7" secondAttribute="bottom" constant="159" type="user" id="1gd-nl-xq1"/>
-                                    <constraint firstItem="oqK-37-5Q7" firstAttribute="top" secondItem="d1W-VS-Rg7" secondAttribute="top" type="default" id="1nU-qV-6sR"/>
-                                    <constraint firstItem="PK0-kQ-41Y" firstAttribute="leading" secondItem="TpK-y7-YSR" secondAttribute="leading" constant="848" id="27B-2j-vB9"/>
-                                    <constraint firstItem="oqK-37-5Q7" firstAttribute="bottom" secondItem="d1W-VS-Rg7" secondAttribute="bottom" type="default" id="73A-kZ-PEp"/>
-                                    <constraint firstItem="ujM-Rr-CVi" firstAttribute="trailing" secondItem="TpK-y7-YSR" secondAttribute="trailing" type="default" id="FhM-NH-MH6"/>
-                                    <constraint firstItem="oqK-37-5Q7" firstAttribute="leading" secondItem="TpK-y7-YSR" secondAttribute="leading" type="default" id="ORZ-E1-Fft"/>
-                                    <constraint firstItem="d1W-VS-Rg7" firstAttribute="bottom" secondItem="ujM-Rr-CVi" secondAttribute="bottom" type="default" id="PGi-7O-tMN"/>
-                                    <constraint firstAttribute="bottom" secondItem="oqK-37-5Q7" secondAttribute="bottom" constant="159" id="PZt-Jn-yq6"/>
-                                    <constraint firstItem="ujM-Rr-CVi" firstAttribute="top" secondItem="d1W-VS-Rg7" secondAttribute="top" type="default" id="ceQ-OG-ug6"/>
-                                    <constraint firstItem="d1W-VS-Rg7" firstAttribute="leading" secondItem="oqK-37-5Q7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="eR4-C6-xuU"/>
-                                    <constraint firstItem="PK0-kQ-41Y" firstAttribute="top" secondItem="TpK-y7-YSR" secondAttribute="top" constant="84" id="hV5-rI-QnU"/>
-                                    <constraint firstItem="ujM-Rr-CVi" firstAttribute="leading" secondItem="TpK-y7-YSR" secondAttribute="leading" constant="640" id="km9-Rj-ZLh"/>
-                                    <constraint firstItem="oqK-37-5Q7" firstAttribute="top" secondItem="TpK-y7-YSR" secondAttribute="top" constant="158" id="vRo-BI-orn"/>
+                                    <constraint firstItem="w1n-h0-QvB" firstAttribute="bottom" secondItem="JoY-2J-Iys" secondAttribute="bottom" type="default" id="0gm-Gk-nlV"/>
+                                    <constraint firstAttribute="trailing" secondItem="w1n-h0-QvB" secondAttribute="trailing" constant="10" id="3xz-eh-s9N"/>
+                                    <constraint firstAttribute="centerY" secondItem="JoY-2J-Iys" secondAttribute="centerY" type="user" id="69D-7Y-rKw"/>
+                                    <constraint firstAttribute="centerY" secondItem="oqK-37-5Q7" secondAttribute="centerY" type="user" id="6F1-MD-K3e"/>
+                                    <constraint firstItem="w1n-h0-QvB" firstAttribute="leading" secondItem="TpK-y7-YSR" secondAttribute="leading" constant="650" id="CFv-UB-ygM"/>
+                                    <constraint firstItem="w1n-h0-QvB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TpK-y7-YSR" secondAttribute="leading" constant="650" type="user" id="DaG-Rj-5ed"/>
+                                    <constraint firstItem="JoY-2J-Iys" firstAttribute="top" secondItem="oqK-37-5Q7" secondAttribute="top" type="default" id="JXa-ZR-yes"/>
+                                    <constraint firstAttribute="centerY" secondItem="oqK-37-5Q7" secondAttribute="centerY" type="user" id="SIy-QJ-ETZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="oqK-37-5Q7" secondAttribute="bottom" constant="109" id="UlK-k2-gcU"/>
+                                    <constraint firstItem="oqK-37-5Q7" firstAttribute="leading" secondItem="TpK-y7-YSR" secondAttribute="leading" constant="15" id="byC-UZ-Tr7"/>
+                                    <constraint firstItem="w1n-h0-QvB" firstAttribute="top" secondItem="JoY-2J-Iys" secondAttribute="top" type="default" id="dXb-lH-f0R"/>
+                                    <constraint firstItem="JoY-2J-Iys" firstAttribute="leading" secondItem="TpK-y7-YSR" secondAttribute="leading" constant="330" type="user" id="eW3-OG-JIC"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Pwg-ZI-G3B" firstAttribute="top" secondItem="AAx-PJ-NdH" secondAttribute="top" type="default" id="05u-tq-tYK"/>
-                            <constraint firstItem="Pwg-ZI-G3B" firstAttribute="bottom" secondItem="AAx-PJ-NdH" secondAttribute="bottom" type="default" id="CGo-lN-Mfb"/>
-                            <constraint firstItem="Pwg-ZI-G3B" firstAttribute="leading" secondItem="AAx-PJ-NdH" secondAttribute="leading" type="default" id="Lww-Rc-rXQ"/>
                             <constraint firstItem="TpK-y7-YSR" firstAttribute="top" secondItem="AAx-PJ-NdH" secondAttribute="top" type="user" id="MIV-NK-jgx"/>
                             <constraint firstItem="TpK-y7-YSR" firstAttribute="top" secondItem="AAx-PJ-NdH" secondAttribute="top" type="user" id="Mbs-pn-1aq"/>
                             <constraint firstItem="TpK-y7-YSR" firstAttribute="bottom" secondItem="AAx-PJ-NdH" secondAttribute="bottom" type="user" id="NOB-ow-yVF"/>
-                            <constraint firstItem="TpK-y7-YSR" firstAttribute="leading" secondItem="AAx-PJ-NdH" secondAttribute="leading" type="default" id="PNa-LW-4Vm"/>
+                            <constraint firstItem="TpK-y7-YSR" firstAttribute="leading" secondItem="AAx-PJ-NdH" secondAttribute="leading" type="user" id="PNa-LW-4Vm"/>
                             <constraint firstItem="TpK-y7-YSR" firstAttribute="bottom" secondItem="AAx-PJ-NdH" secondAttribute="bottom" type="user" id="UNY-S5-zjm"/>
-                            <constraint firstItem="TpK-y7-YSR" firstAttribute="trailing" secondItem="AAx-PJ-NdH" secondAttribute="trailing" type="default" id="ijY-Jg-IWU"/>
+                            <constraint firstItem="TpK-y7-YSR" firstAttribute="trailing" secondItem="AAx-PJ-NdH" secondAttribute="trailing" type="user" id="ijY-Jg-IWU"/>
+                            <constraint firstAttribute="centerY" secondItem="TpK-y7-YSR" secondAttribute="centerY" type="user" id="rXW-1k-fut"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hcP-Ah-Ff4"/>
+                    <navigationItem key="navigationItem" id="hcP-Ah-Ff4">
+                        <barButtonItem key="leftBarButtonItem" image="reveal_menu_icon_portrait.png" id="yMQ-XB-vwm">
+                            <connections>
+                                <action selector="revealButtonPressed:" destination="EPj-Gf-BKX" id="9ZF-1B-zTG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="374-i7-bJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="-574"/>
+            <point key="canvasLocation" x="1152" y="-574"/>
         </scene>
         <!--Nav Table View Controller-->
         <scene sceneID="TbR-Sk-Pvw">
@@ -733,14 +718,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tutorial 1.png" width="1183" height="1145"/>
-        <image name="Tutorial 2.png" width="1181" height="1145"/>
-        <image name="Tutorial 3.png" width="1181" height="1147"/>
+        <image name="CookingTutorial.jpg" width="570" height="650"/>
+        <image name="EatTutorial.jpg" width="570" height="650"/>
+        <image name="SharingTutorial.jpg" width="570" height="650"/>
         <image name="createmeal-568h@2x.png" width="640" height="1136"/>
         <image name="firstmeal-568h@2x.png" width="640" height="1136"/>
         <image name="reveal_menu_icon_portrait.png" width="25" height="19"/>
         <image name="tablebackground.jpg" width="3660" height="2450"/>
-        <image name="wood_background.png" width="640" height="960"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
