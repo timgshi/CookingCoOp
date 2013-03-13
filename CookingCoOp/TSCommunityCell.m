@@ -33,7 +33,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (self.community) {
-        self.nameLabel = [self.community objectForKey:@"name"];
+        self.nameLabel.text = [self.community objectForKey:@"name"];
         NSInteger count = ((NSArray *)[self.community objectForKey:@"members"]).count;
         NSString *countString = [NSString stringWithFormat:@"%d member", count];
         if (count > 1) {

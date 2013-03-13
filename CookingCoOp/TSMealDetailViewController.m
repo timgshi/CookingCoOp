@@ -64,7 +64,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.meal setObject:self.whereTextField.text forKey:@"where"];
+    if (self.whereTextField.text.length > 0) [self.meal setObject:self.whereTextField.text forKey:@"where"];
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     if(self.countTextField.text.length > 0) [self.meal setObject:[formatter numberFromString:self.countTextField.text] forKey:@"maxAttendees"];

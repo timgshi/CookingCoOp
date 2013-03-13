@@ -21,6 +21,9 @@ static NSString * const kGAIId = @"UA-38985264-1";
 {
     [Parse setApplicationId:kCCParseId
                   clientKey:kCCParseKey];
+//    [PFUser enableAutomaticUser];
+//    [[PFUser currentUser] incrementKey:@"RunCount"];
+//    [[PFUser currentUser] saveInBackground];
     [TestFlight takeOff:kCCTestFlightId];
 #ifndef RELEASE
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];

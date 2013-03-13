@@ -65,17 +65,21 @@
             
         }];
     } else {
-        NSDictionary *data = @{@"name": self.dishTextField.text,
-                               @"thankful": self.thankfulTextField.text,
-                               @"chef": [PFUser currentUser]};
-        PFObject *obj = [PFObject objectWithClassName:@"Meal"
-                                           dictionary:data];
-        [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            TSMealDetailViewController *mealDetail = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MealDetailVC"];
-            mealDetail.meal = obj;
-            [self.delegate createMealViewController:self didCreateMealVC:mealDetail];
-        }];
+        [self saveMeal];
     }
+}
+
+- (void)saveMeal {
+    NSDictionary *data = @{@"name": self.dishTextField.text,
+                           @"thankful": self.thankfulTextField.text,
+                           @"chef": [PFUser currentUser]};
+    PFObject *obj = [PFObject objectWithClassName:@"Meal"
+                                       dictionary:data];
+    [obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        TSMealDetailViewController *mealDetail = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MealDetailVC"];
+        mealDetail.meal = obj;
+        [self.delegate createMealViewController:self didCreateMealVC:mealDetail];
+    }];
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
@@ -124,7 +128,9 @@
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [self saveMeal];
+    }];
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
@@ -140,7 +146,9 @@
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [self saveMeal];
+    }];
 }
 
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
