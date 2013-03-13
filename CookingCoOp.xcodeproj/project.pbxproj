@@ -618,7 +618,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D74E425A6D314C369B181BAD /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CookingCoOp/CookingCoOp-Prefix.pch";

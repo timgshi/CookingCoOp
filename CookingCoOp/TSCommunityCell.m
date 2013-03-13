@@ -32,11 +32,14 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    for (UIImageView *imageView in self.imageViews) {
+        [imageView setImage:nil];
+    }
     if (self.community) {
         self.nameLabel.text = [self.community objectForKey:@"name"];
         NSInteger count = ((NSArray *)[self.community objectForKey:@"members"]).count;
         NSString *countString = [NSString stringWithFormat:@"%d member", count];
-        if (count > 1) {
+        if (count > 1 || count == 0) {
             countString = [countString stringByAppendingString:@"s"];
         }
         self.countLabel.text = countString;

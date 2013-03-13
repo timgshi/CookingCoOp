@@ -54,15 +54,15 @@
         if (!error) {
             self.curLocation = geoPoint;
             [self loadObjects];
-            NSArray *names = @[@"Escondido Village Foodies", @"Eat Your Vegatables", @"Wine & Diners"];
-            for (NSString *name in names) {
-                PFObject *obj = [PFObject objectWithClassName:self.className];
-                [obj setObject:name forKey:@"name"];
-                [obj setObject:[PFUser currentUser] forKey:@"creator"];
-                [obj setObject:@[[PFUser currentUser]] forKey:@"members"];
-                [obj setObject:geoPoint forKey:@"location"];
-                [obj saveInBackground];
-            }
+//            NSArray *names = @[@"Escondido Village Foodies", @"Eat Your Vegatables", @"Wine & Diners"];
+//            for (NSString *name in names) {
+//                PFObject *obj = [PFObject objectWithClassName:self.className];
+//                [obj setObject:name forKey:@"name"];
+//                [obj setObject:[PFUser currentUser] forKey:@"creator"];
+//                [obj setObject:@[[PFUser currentUser]] forKey:@"members"];
+//                [obj setObject:geoPoint forKey:@"location"];
+//                [obj saveInBackground];
+//            }
         }
     }];
 }
@@ -94,6 +94,27 @@
     cell.community = object;
     [cell setNeedsLayout];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFObject *community = [self objectAtIndexPath:indexPath];
+    for (PFUser *member in [community objectForKey:@"members"]) {
+        if ([member.username isEqualToString:[PFUser currentUser].username]) {
+            NSMutableArray *mCopy = [community objectForKey:@"members"];
+            [mCopy removeObject:member];
+            [community setObject:mCopy forKey:@"members"];
+            [community saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [self loadObjects];
+            }];
+            return;
+        }
+    }
+    NSMutableArray *mCopy = [community objectForKey:@"members"];
+    [mCopy addObject:[PFUser currentUser]];
+    [community setObject:mCopy forKey:@"members"];
+    [community saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self loadObjects];
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
