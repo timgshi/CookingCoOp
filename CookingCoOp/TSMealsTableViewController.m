@@ -9,6 +9,7 @@
 #import "TSMealsTableViewController.h"
 
 #import "TSCreateMealViewController.h"
+#import "TSMealDetailViewController.h"
 
 @interface TSMealsTableViewController () <TSCreateMealDelegate>
 
@@ -79,6 +80,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFObject *meal = [self objectAtIndexPath:indexPath];
+    TSMealDetailViewController *mealVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MealDetailVC"];
+    mealVC.meal = meal;
+    [self.navigationController pushViewController:mealVC animated:YES];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"addMeal"]) {
         TSCreateMealViewController *vc = (TSCreateMealViewController *)[[segue destinationViewController] topViewController];
@@ -90,6 +98,10 @@
     [self dismissViewControllerAnimated:YES completion:^{
         [self.navigationController pushViewController:mealVC animated:YES];
     }];
+}
+
+- (IBAction)revealButtonPressed:(id)sender {
+    [self.parentViewController.revealController showViewController:self.parentViewController.revealController.leftViewController];
 }
 
 @end

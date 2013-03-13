@@ -100,4 +100,8 @@
     return 130.0;
 }
 
+- (IBAction)revealButtonPressed:(id)sender {
+    [self.parentViewController.revealController showViewController:self.parentViewController.revealController.leftViewController];
+}
+
 @end
