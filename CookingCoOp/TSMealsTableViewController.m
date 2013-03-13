@@ -61,9 +61,10 @@
     
     [query orderByDescending:@"createdAt"];
     if ([PFUser currentUser]) {
-        [query whereKey:@"chef" equalTo:[PFUser currentUser]];
+//        [query whereKey:@"chef" equalTo:[PFUser currentUser]];
     }
     [query includeKey:@"chef"];
+    [query includeKey:@"community"];
     return query;
 }
 
@@ -85,7 +86,7 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PFObject *meal = [self objectAtIndexPath:indexPath];
     TSMealDetailViewController *mealVC = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MealDetailVC"];
     mealVC.meal = meal;

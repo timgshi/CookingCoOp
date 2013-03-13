@@ -79,6 +79,12 @@
 
 - (void)updateView {
     if (self.meal) {
+        if ([[PFUser currentUser] objectForKey:@"profilePicture"]) {
+            PFFile *profImage = [[PFUser currentUser] objectForKey:@"profilePicture"];
+            [profImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                self.profileImageView.image = [UIImage imageWithData:data];
+            }];
+        }
         self.dishLabel.text = [self.meal objectForKey:@"name"];
         self.thankfulLabel.text = [self.meal objectForKey:@"thankful"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -94,7 +100,7 @@
             NSInteger index = [self.communities indexOfObject:[self.meal objectForKey:@"community"]];
             [self.communityPicker selectRow:index inComponent:0 animated:NO];
         }
-        if ([self.meal objectForKey:@"chef"] == [PFUser currentUser]) {
+        if ([[[self.meal objectForKey:@"chef"] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(trashButtonPressed)];
         } else {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"RSVP" style:UIBarButtonItemStyleBordered target:self action:@selector(rsvpButtonPressed)];

@@ -53,16 +53,16 @@
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
         if (!error) {
             self.curLocation = geoPoint;
-//            [self loadObjects];
-//            NSArray *names = @[@"Escondido Village Foodies", @"Eat Your Vegatables", @"Wine & Diners"];
-//            for (NSString *name in names) {
-//                PFObject *obj = [PFObject objectWithClassName:self.className];
-//                [obj setObject:name forKey:@"name"];
-//                [obj setObject:[PFUser currentUser] forKey:@"creator"];
-//                [obj setObject:@[[PFUser currentUser]] forKey:@"members"];
-//                [obj setObject:geoPoint forKey:@"location"];
-//                [obj saveInBackground];
-//            }
+            [self loadObjects];
+            NSArray *names = @[@"Escondido Village Foodies", @"Eat Your Vegatables", @"Wine & Diners"];
+            for (NSString *name in names) {
+                PFObject *obj = [PFObject objectWithClassName:self.className];
+                [obj setObject:name forKey:@"name"];
+                [obj setObject:[PFUser currentUser] forKey:@"creator"];
+                [obj setObject:@[[PFUser currentUser]] forKey:@"members"];
+                [obj setObject:geoPoint forKey:@"location"];
+                [obj saveInBackground];
+            }
         }
     }];
 }

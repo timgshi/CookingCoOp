@@ -10,7 +10,7 @@
 
 #import "TSMealDetailViewController.h"
 
-@interface TSCreateMealViewController () <UITextFieldDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface TSCreateMealViewController () <UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *dishTextField;
 @property (strong, nonatomic) IBOutlet UITextField *thankfulTextField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
@@ -145,14 +145,83 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSArray *buttonTitles;
+        UIActionSheet *actionSheet;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            actionSheet = [[UIActionSheet alloc]
+                              initWithTitle:@"Please add a profile picture."
+                              delegate:self
+                              cancelButtonTitle:@"Cancel"
+                              destructiveButtonTitle:nil
+                              otherButtonTitles:@"From Camera",@"From Photo Library", nil];
+        } else {
+            actionSheet = [[UIActionSheet alloc]
+                           initWithTitle:@"Please add a profile picture."
+                           delegate:self
+                           cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:nil
+                           otherButtonTitles:@"From Photo Library", nil];
+        }
+        [actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+        [actionSheet showInView:self.view];
+    }];
+}
+
+- (void)displayImagePickerWithSource:(UIImagePickerControllerSourceType)src;
+{
+    if(![UIImagePickerController isSourceTypeAvailable:src]) {
+        src = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setSourceType:src];
+    [picker setDelegate:self];
+    [picker setAllowsEditing:YES];
+    [self presentViewController:picker animated:YES completion:^{
+    }];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex;
+{
+    switch (buttonIndex) {
+        case 0:
+            [self displayImagePickerWithSource:UIImagePickerControllerSourceTypeCamera];
+            break;
+        case 1:
+            [self displayImagePickerWithSource:UIImagePickerControllerSourceTypePhotoLibrary];
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        UIImage *image = info[UIImagePickerControllerEditedImage];
+        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+        PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [[PFUser currentUser] setObject:imageFile forKey:@"profilePicture"];
+            [[PFUser currentUser] saveInBackground];
+        } progressBlock:^(int percentDone) {
+            // Update your progress spinner here. percentDone will be between 0 and 100.
+        }];
         [self saveMeal];
     }];
 }
 
-- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+//Tells the delegate that the user cancelled the pick operation.
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
 }
 
 @end
