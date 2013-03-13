@@ -78,7 +78,7 @@
     if (self.objects.count == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-//    [query includeKey:@"members"];
+    [query includeKey:@"members"];
     return query;
 }
 
@@ -87,21 +87,17 @@
                         object:(PFObject *)object
 {
     static NSString *cellIdentifier = @"CommunityCell";
-    
-//    TSCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-//    TSCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    if (!cell) {
-//        cell = [[TSCommunityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//    }
-//    cell.community = object;
-//    [cell setNeedsLayout];
-    PFTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    TSCommunityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:cellIdentifier];
+        cell = [[TSCommunityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-
+    cell.community = object;
+    [cell setNeedsLayout];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 130.0;
 }
 
 @end
